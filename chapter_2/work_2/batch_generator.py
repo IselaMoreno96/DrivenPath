@@ -140,7 +140,7 @@ if __name__ == "__main__":
     output_file = f"chapter_2/work_2/data_2/batch_{date.today()}.csv"
 
     # Define number of records: first run - 10_372; next runs random number.
-    if str(date.today()) == "2025-06-26":
+    if str(date.today()) == "2024-09-14":
         records = random.randint(100_372, 100_372)
         run_type = "first"
     else:
