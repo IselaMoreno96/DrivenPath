@@ -1,0 +1,124 @@
+[2025-07-01T21:48:57.442+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-07-01T21:48:57.485+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.run_dbt_staging manual__2025-07-01T21:48:43.518974+00:00 [queued]>
+[2025-07-01T21:48:57.504+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.run_dbt_staging manual__2025-07-01T21:48:43.518974+00:00 [queued]>
+[2025-07-01T21:48:57.508+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-07-01T21:48:57.537+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): run_dbt_staging> on 2025-07-01 21:48:43.518974+00:00
+[2025-07-01T21:48:57.549+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=3057) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-07-01T21:48:57.554+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'extract_raw_data_pipeline', 'run_dbt_staging', 'manual__2025-07-01T21:48:43.518974+00:00', '--job-id', '44', '--raw', '--subdir', 'DAGS_FOLDER/driven_data_pipeline.py', '--cfg-path', '/tmp/tmpaqy3gft9']
+[2025-07-01T21:48:57.556+0000] {standard_task_runner.py:72} INFO - Started process 3058 to run task
+[2025-07-01T21:48:57.557+0000] {standard_task_runner.py:105} INFO - Job 44: Subtask run_dbt_staging
+[2025-07-01T21:48:57.683+0000] {task_command.py:467} INFO - Running <TaskInstance: extract_raw_data_pipeline.run_dbt_staging manual__2025-07-01T21:48:43.518974+00:00 [running]> on host 8eddfe292772
+[2025-07-01T21:48:57.835+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_raw_data_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_staging' AIRFLOW_CTX_EXECUTION_DATE='2025-07-01T21:48:43.518974+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-01T21:48:43.518974+00:00'
+[2025-07-01T21:48:57.837+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-07-01T21:48:57.859+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-07-01T21:48:57.860+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'set -x; cd /opt/***/dbt && dbt run --select tag:staging']
+[2025-07-01T21:48:57.877+0000] {subprocess.py:86} INFO - Output:
+[2025-07-01T21:48:57.880+0000] {subprocess.py:93} INFO - + cd /opt/***/dbt
+[2025-07-01T21:48:57.882+0000] {subprocess.py:93} INFO - + dbt run --select tag:staging
+[2025-07-01T21:49:02.589+0000] {subprocess.py:93} INFO - [0m21:49:02  Running with dbt=1.8.0
+[2025-07-01T21:49:02.615+0000] {subprocess.py:93} INFO - [0m21:49:02  Encountered an error:
+[2025-07-01T21:49:02.616+0000] {subprocess.py:93} INFO - argument of type 'NoneType' is not iterable
+[2025-07-01T21:49:02.617+0000] {subprocess.py:93} INFO - [0m21:49:02  Traceback (most recent call last):
+[2025-07-01T21:49:02.619+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 138, in wrapper
+[2025-07-01T21:49:02.620+0000] {subprocess.py:93} INFO -     result, success = func(*args, **kwargs)
+[2025-07-01T21:49:02.621+0000] {subprocess.py:93} INFO -                       ^^^^^^^^^^^^^^^^^^^^^
+[2025-07-01T21:49:02.622+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 101, in wrapper
+[2025-07-01T21:49:02.623+0000] {subprocess.py:93} INFO -     return func(*args, **kwargs)
+[2025-07-01T21:49:02.624+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^
+[2025-07-01T21:49:02.625+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/cli/requires.py", line 215, in wrapper
+[2025-07-01T21:49:02.626+0000] {subprocess.py:93} INFO -     profile = load_profile(flags.PROJECT_DIR, flags.VARS, flags.PROFILE, flags.TARGET, threads)
+[2025-07-01T21:49:02.629+0000] {subprocess.py:93} INFO -               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-07-01T21:49:02.631+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/config/runtime.py", line 71, in load_profile
+[2025-07-01T21:49:02.632+0000] {subprocess.py:93} INFO -     profile = Profile.render(
+[2025-07-01T21:49:02.634+0000] {subprocess.py:93} INFO -               ^^^^^^^^^^^^^^^
+[2025-07-01T21:49:02.635+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/config/profile.py", line 403, in render
+[2025-07-01T21:49:02.636+0000] {subprocess.py:93} INFO -     return cls.from_raw_profiles(
+[2025-07-01T21:49:02.637+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^
+[2025-07-01T21:49:02.638+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/config/profile.py", line 369, in from_raw_profiles
+[2025-07-01T21:49:02.638+0000] {subprocess.py:93} INFO -     return cls.from_raw_profile_info(
+[2025-07-01T21:49:02.639+0000] {subprocess.py:93} INFO -            ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-07-01T21:49:02.640+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/config/profile.py", line 315, in from_raw_profile_info
+[2025-07-01T21:49:02.645+0000] {subprocess.py:93} INFO -     target_name, profile_data = cls.render_profile(
+[2025-07-01T21:49:02.646+0000] {subprocess.py:93} INFO -                                 ^^^^^^^^^^^^^^^^^^^
+[2025-07-01T21:49:02.647+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/config/profile.py", line 281, in render_profile
+[2025-07-01T21:49:02.648+0000] {subprocess.py:93} INFO -     raw_profile_data = cls._get_profile_data(raw_profile, profile_name, target_name)
+[2025-07-01T21:49:02.649+0000] {subprocess.py:93} INFO -                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-07-01T21:49:02.651+0000] {subprocess.py:93} INFO -   File "/home/***/.local/lib/python3.12/site-packages/dbt/config/profile.py", line 206, in _get_profile_data
+[2025-07-01T21:49:02.652+0000] {subprocess.py:93} INFO -     if target_name not in outputs:
+[2025-07-01T21:49:02.653+0000] {subprocess.py:93} INFO -        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[2025-07-01T21:49:02.654+0000] {subprocess.py:93} INFO - TypeError: argument of type 'NoneType' is not iterable
+[2025-07-01T21:49:02.655+0000] {subprocess.py:93} INFO - 
+[2025-07-01T21:49:03.443+0000] {subprocess.py:97} INFO - Command exited with return code 2
+[2025-07-01T21:49:03.465+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-07-01T21:49:03.474+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=extract_raw_data_pipeline, task_id=run_dbt_staging, run_id=manual__2025-07-01T21:48:43.518974+00:00, execution_date=20250701T214843, start_date=20250701T214857, end_date=20250701T214903
+[2025-07-01T21:49:03.503+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-07-01T21:49:03.504+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 44 for task run_dbt_staging (Bash command failed. The command returned a non-zero exit code 2.; 3058)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 2.
+[2025-07-01T21:49:03.527+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-07-01T21:49:03.564+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-01T21:49:03.569+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

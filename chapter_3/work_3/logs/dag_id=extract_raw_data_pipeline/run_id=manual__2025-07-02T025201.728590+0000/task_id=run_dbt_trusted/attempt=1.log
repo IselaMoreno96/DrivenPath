@@ -1,0 +1,123 @@
+[2025-07-02T02:52:12.988+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-07-02T02:52:13.004+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.run_dbt_trusted manual__2025-07-02T02:52:01.728590+00:00 [queued]>
+[2025-07-02T02:52:13.012+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: extract_raw_data_pipeline.run_dbt_trusted manual__2025-07-02T02:52:01.728590+00:00 [queued]>
+[2025-07-02T02:52:13.015+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-07-02T02:52:13.029+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): run_dbt_trusted> on 2025-07-02 02:52:01.728590+00:00
+[2025-07-02T02:52:13.035+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70: DeprecationWarning: This process (pid=600) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2025-07-02T02:52:13.037+0000] {standard_task_runner.py:72} INFO - Started process 601 to run task
+[2025-07-02T02:52:13.037+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'extract_raw_data_pipeline', 'run_dbt_trusted', 'manual__2025-07-02T02:52:01.728590+00:00', '--job-id', '23', '--raw', '--subdir', 'DAGS_FOLDER/driven_data_pipeline.py', '--cfg-path', '/tmp/tmpauxwy83u']
+[2025-07-02T02:52:13.039+0000] {standard_task_runner.py:105} INFO - Job 23: Subtask run_dbt_trusted
+[2025-07-02T02:52:13.091+0000] {task_command.py:467} INFO - Running <TaskInstance: extract_raw_data_pipeline.run_dbt_trusted manual__2025-07-02T02:52:01.728590+00:00 [running]> on host 3256dfb9308a
+[2025-07-02T02:52:13.164+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='extract_raw_data_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_trusted' AIRFLOW_CTX_EXECUTION_DATE='2025-07-02T02:52:01.728590+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-07-02T02:52:01.728590+00:00'
+[2025-07-02T02:52:13.166+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-07-02T02:52:13.177+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-07-02T02:52:13.179+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', 'set -x; cd /opt/***/dbt && dbt run --select tag:trusted']
+[2025-07-02T02:52:13.189+0000] {subprocess.py:86} INFO - Output:
+[2025-07-02T02:52:13.191+0000] {subprocess.py:93} INFO - + cd /opt/***/dbt
+[2025-07-02T02:52:13.192+0000] {subprocess.py:93} INFO - + dbt run --select tag:trusted
+[2025-07-02T02:52:14.939+0000] {subprocess.py:93} INFO - [0m02:52:14  Running with dbt=1.8.0
+[2025-07-02T02:52:15.203+0000] {subprocess.py:93} INFO - [0m02:52:15  Registered adapter: postgres=1.8.2
+[2025-07-02T02:52:15.725+0000] {subprocess.py:93} INFO - [0m02:52:15  Found 9 models, 10 sources, 428 macros
+[2025-07-02T02:52:15.728+0000] {subprocess.py:93} INFO - [0m02:52:15
+[2025-07-02T02:52:15.875+0000] {subprocess.py:93} INFO - [0m02:52:15  Concurrency: 1 threads (target='dev')
+[2025-07-02T02:52:15.876+0000] {subprocess.py:93} INFO - [0m02:52:15
+[2025-07-02T02:52:15.888+0000] {subprocess.py:93} INFO - [0m02:52:15  1 of 4 START sql table model driven_trusted.non_pii_data ....................... [RUN]
+[2025-07-02T02:52:15.990+0000] {subprocess.py:93} INFO - [0m02:52:15  1 of 4 ERROR creating sql table model driven_trusted.non_pii_data .............. [[31mERROR[0m in 0.10s]
+[2025-07-02T02:52:15.996+0000] {subprocess.py:93} INFO - [0m02:52:15  2 of 4 START sql table model driven_trusted.payment_data ....................... [RUN]
+[2025-07-02T02:52:16.120+0000] {subprocess.py:93} INFO - [0m02:52:16  2 of 4 OK created sql table model driven_trusted.payment_data .................. [[32mSELECT 30[0m in 0.12s]
+[2025-07-02T02:52:16.124+0000] {subprocess.py:93} INFO - [0m02:52:16  3 of 4 START sql table model driven_trusted.pii_data ........................... [RUN]
+[2025-07-02T02:52:16.177+0000] {subprocess.py:93} INFO - [0m02:52:16  3 of 4 ERROR creating sql table model driven_trusted.pii_data .................. [[31mERROR[0m in 0.05s]
+[2025-07-02T02:52:16.179+0000] {subprocess.py:93} INFO - [0m02:52:16  4 of 4 START sql table model driven_trusted.technical_data ..................... [RUN]
+[2025-07-02T02:52:16.269+0000] {subprocess.py:93} INFO - [0m02:52:16  4 of 4 OK created sql table model driven_trusted.technical_data ................ [[32mSELECT 30[0m in 0.09s]
+[2025-07-02T02:52:16.291+0000] {subprocess.py:93} INFO - [0m02:52:16
+[2025-07-02T02:52:16.291+0000] {subprocess.py:93} INFO - [0m02:52:16  Finished running 4 table models in 0 hours 0 minutes and 0.56 seconds (0.56s).
+[2025-07-02T02:52:16.351+0000] {subprocess.py:93} INFO - [0m02:52:16
+[2025-07-02T02:52:16.352+0000] {subprocess.py:93} INFO - [0m02:52:16  [31mCompleted with 2 errors and 0 warnings:[0m
+[2025-07-02T02:52:16.353+0000] {subprocess.py:93} INFO - [0m02:52:16
+[2025-07-02T02:52:16.353+0000] {subprocess.py:93} INFO - [0m02:52:16    Database Error in model trusted_non_pii_data (models/trusted_non_pii_data.sql)
+[2025-07-02T02:52:16.354+0000] {subprocess.py:93} INFO -   relation "driven_staging.dim_date" does not exist
+[2025-07-02T02:52:16.354+0000] {subprocess.py:93} INFO -   LINE 37:  "***"."driven_staging"."dim_date" dd ON da.unique_id =
+[2025-07-02T02:52:16.355+0000] {subprocess.py:93} INFO -             ^
+[2025-07-02T02:52:16.356+0000] {subprocess.py:93} INFO -   compiled code at target/run/dbt_driven_data/models/trusted_non_pii_data.sql
+[2025-07-02T02:52:16.357+0000] {subprocess.py:93} INFO - [0m02:52:16
+[2025-07-02T02:52:16.358+0000] {subprocess.py:93} INFO - [0m02:52:16    Database Error in model trusted_pii_data (models/trusted_pii_data.sql)
+[2025-07-02T02:52:16.358+0000] {subprocess.py:93} INFO -   relation "driven_staging.dim_date" does not exist
+[2025-07-02T02:52:16.359+0000] {subprocess.py:93} INFO -   LINE 37:  "***"."driven_staging"."dim_date" dd ON da.unique_id =
+[2025-07-02T02:52:16.359+0000] {subprocess.py:93} INFO -             ^
+[2025-07-02T02:52:16.360+0000] {subprocess.py:93} INFO -   compiled code at target/run/dbt_driven_data/models/trusted_pii_data.sql
+[2025-07-02T02:52:16.360+0000] {subprocess.py:93} INFO - [0m02:52:16
+[2025-07-02T02:52:16.361+0000] {subprocess.py:93} INFO - [0m02:52:16  Done. PASS=2 WARN=0 ERROR=2 SKIP=0 TOTAL=4
+[2025-07-02T02:52:16.927+0000] {subprocess.py:97} INFO - Command exited with return code 1
+[2025-07-02T02:52:16.940+0000] {taskinstance.py:3310} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-07-02T02:52:16.947+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=extract_raw_data_pipeline, task_id=run_dbt_trusted, run_id=manual__2025-07-02T02:52:01.728590+00:00, execution_date=20250702T025201, start_date=20250702T025213, end_date=20250702T025216
+[2025-07-02T02:52:16.964+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-07-02T02:52:16.966+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 23 for task run_dbt_trusted (Bash command failed. The command returned a non-zero exit code 1.; 601)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/cli.py", line 115, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3004, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3158, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 3182, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 249, in execute
+    raise AirflowException(
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 1.
+[2025-07-02T02:52:16.992+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2025-07-02T02:52:17.013+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-07-02T02:52:17.018+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
